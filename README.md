@@ -51,9 +51,9 @@ curl -x http://localhost:9292 http://localhost:8080
 ```
 Now you'll see it was proxied! ✨
 
-## 🆘 Running into Issues?
+## Running into Issues?
 
-No worries! Here's what to check:
+Here's what to check:
 1. Are ports 8080 and 9292 free? Something else might be using them
 2. Both servers running? Check those terminal windows
 3. Look at the logs - they'll tell you what's happening
