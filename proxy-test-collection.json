@@ -1,0 +1,58 @@
+{
+  "name": "Proxy Test Collection",
+  "version": "1.0.0",
+  "items": [
+    {
+      "name": "Direct Request to Target",
+      "type": "http-request",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:8080",
+        "headers": {
+          "Accept": "application/json"
+        }
+      }
+    },
+    {
+      "name": "Proxied Request to Target",
+      "type": "http-request",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:8080",
+        "headers": {
+          "Accept": "application/json"
+        },
+        "proxy": {
+          "enabled": true,
+          "url": "http://localhost:9292"
+        }
+      }
+    },
+    {
+      "name": "Get Users (Direct)",
+      "type": "http-request",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:8080/api/users",
+        "headers": {
+          "Accept": "application/json"
+        }
+      }
+    },
+    {
+      "name": "Get Users (Proxied)",
+      "type": "http-request",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:8080/api/users",
+        "headers": {
+          "Accept": "application/json"
+        },
+        "proxy": {
+          "enabled": true,
+          "url": "http://localhost:9292"
+        }
+      }
+    }
+  ]
+} 

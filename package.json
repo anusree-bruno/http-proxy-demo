@@ -1,17 +1,19 @@
 {
   "name": "proxy-server",
   "version": "1.0.0",
-  "description": "A test server for proxy connections",
+  "description": "A test environment for proxy server testing",
   "main": "target-server.js",
   "scripts": {
     "start": "node target-server.js",
-    "start:echo": "node echo-server.js"
+    "start:proxy": "node index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.20.2",
     "express": "^4.18.2",
-    "body-parser": "^1.20.2"
+    "http-proxy-middleware": "^2.0.6",
+    "morgan": "^1.10.0"
   }
 }
