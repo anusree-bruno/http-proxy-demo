@@ -82,6 +82,7 @@ const proxyOptions = {
     const isTargetAvailable = await checkTargetServer();
     
     if (!isTargetAvailable) {
+      console.error(colors.red + 'Target server is not available' + colors.reset);
       // Target server is not available
       res.status(503).json({
         error: 'Service Unavailable',
@@ -93,6 +94,7 @@ const proxyOptions = {
         }
       });
     } else {
+      console.error(colors.red + 'Other proxy error occurred' + colors.reset);
       // Other proxy error
       res.status(500).json({
         error: 'Proxy Error',
@@ -106,18 +108,17 @@ const proxyOptions = {
   }
 };
 
-// Create the proxy
+// Create proxy
 const proxy = createProxyMiddleware(proxyOptions);
 
 // Apply proxy to all routes
 app.use('/', proxy);
 
-// Start the server
 const PORT = 9292;
-app.listen(PORT, 'localhost', () => {
+app.listen(PORT, () => {
   console.log('\n' + colors.blue + '='.repeat(50) + colors.reset);
   console.log(colors.bright + 'PROXY SERVER STARTED' + colors.reset);
   console.log(colors.yellow + 'Proxy running on:' + colors.reset, `http://localhost:${PORT}`);
-  console.log(colors.yellow + 'Forwarding to:' + colors.reset, proxyOptions.target);
+  console.log(colors.yellow + 'Forwarding to:' + colors.reset, 'http://localhost:8080');
   console.log(colors.blue + '='.repeat(50) + colors.reset + '\n');
 }); 

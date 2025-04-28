@@ -1,0 +1,29 @@
+{
+  "version": "1",
+  "name": "proxy-tests",
+  "type": "collection",
+  "proxy": {
+    "enabled": true,
+    "protocol": "http",
+    "hostname": "localhost",
+    "port": 9292,
+    "auth": {
+      "enabled": false
+    },
+    "bypassProxy": ""
+  },
+  "scripts": {
+    "moduleWhitelist": ["crypto", "buffer", "form-data"],
+    "filesystemAccess": {
+      "allow": true
+    }
+  },
+  "clientCertificates": {
+    "enabled": false,
+    "certs": []
+  },
+  "presets": {
+    "requestType": "http",
+    "requestUrl": "http://localhost:8080"
+  }
+} 
